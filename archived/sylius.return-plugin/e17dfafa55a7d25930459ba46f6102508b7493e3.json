@@ -1,0 +1,62 @@
+{
+    "manifests": {
+        "sylius/return-plugin": {
+            "manifest": {
+                "bundles": {
+                    "Sylius\\ReturnPlugin\\SyliusReturnPlugin": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/sylius_return_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ContainerConfigurator;",
+                        "",
+                        "return static function (ContainerConfigurator $containerConfigurator): void {",
+                        "    $containerConfigurator->import('@SyliusReturnPlugin/config/config.yaml');",
+                        "",
+                        "    $containerConfigurator->extension('sylius_return', [",
+                        "        'pdf_generator' => [",
+                        "            'enabled' => true,",
+                        "        ],",
+                        "    ]);",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/sylius_return_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\Routing\\Loader\\Configurator\\RoutingConfigurator;",
+                        "",
+                        "return static function (RoutingConfigurator $routingConfigurator): void {",
+                        "    $routingConfigurator->import('@SyliusReturnPlugin/config/routes/admin_routing.yaml')",
+                        "        ->prefix('/%sylius_admin.path_name%');",
+                        "",
+                        "    $routingConfigurator->import('@SyliusReturnPlugin/config/routes/shop_routing.yaml')",
+                        "        ->prefix('/{_locale}')",
+                        "        ->requirements([",
+                        "            '_locale' => '^[a-z]{2}(?:_[A-Z]{2})?$',",
+                        "        ]);",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "e17dfafa55a7d25930459ba46f6102508b7493e3"
+        }
+    }
+}
