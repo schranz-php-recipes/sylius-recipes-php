@@ -25,6 +25,7 @@ after add the following to the `composer` `extra.symfony.endpoint` configuration
             "require": "6.1.*",
             "endpoint": [
                 "https://raw.githubusercontent.com/schranz-php-recipes/sylius-recipes-php/flex/main/index.json",
+                "https://api.github.com/repos/Sylius/SyliusRecipes/contents/index.json?ref=flex/main",
                 "flex://defaults"
             ]
         }
