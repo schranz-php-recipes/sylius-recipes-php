@@ -2,13 +2,13 @@ name: Watch for changes
 
 on:
     schedule:
-        - cron: '13 00 * * *'
+        - cron: '0 13 * * *'
     workflow_dispatch:
 
 jobs:
     call-watch:
         uses: schranz-php-recipes/symfony-recipes-php/.github/workflows/callable-watch.yml@main
         with:
-            original_repository: https://github.com/Sylius/SyliusRecipes.git
+            original_repository: https://github.com/symfony/recipes-contrib.git
         secrets:
             token: ${{ secrets.BOT_TOKEN }}
