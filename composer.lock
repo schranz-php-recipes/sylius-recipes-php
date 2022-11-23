@@ -2678,12 +2678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/config-transformer.git",
-                "reference": "a9e018b81ec7bc641f59bbdfb37b15c891a88fce"
+                "reference": "37ac6bd7a74f741232a38900f45bb755bb19f6d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/a9e018b81ec7bc641f59bbdfb37b15c891a88fce",
-                "reference": "a9e018b81ec7bc641f59bbdfb37b15c891a88fce",
+                "url": "https://api.github.com/repos/symplify/config-transformer/zipball/37ac6bd7a74f741232a38900f45bb755bb19f6d4",
+                "reference": "37ac6bd7a74f741232a38900f45bb755bb19f6d4",
                 "shasum": ""
             },
             "require": {
@@ -2712,7 +2712,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-20T02:02:03+00:00"
+            "time": "2022-11-22T22:29:56+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
@@ -2775,18 +2775,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/package-builder.git",
-                "reference": "90a2179ac96aa2f8c379c59aba10ee61a6e13a88"
+                "reference": "a57f09a011ca50d3eb137543a64ef5d892715a2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/package-builder/zipball/90a2179ac96aa2f8c379c59aba10ee61a6e13a88",
-                "reference": "90a2179ac96aa2f8c379c59aba10ee61a6e13a88",
+                "url": "https://api.github.com/repos/symplify/package-builder/zipball/a57f09a011ca50d3eb137543a64ef5d892715a2d",
+                "reference": "a57f09a011ca50d3eb137543a64ef5d892715a2d",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^3.2",
                 "php": ">=8.1",
-                "sebastian/diff": "^4.0",
+                "sebastian/diff": "^4.0|^5.0",
                 "symfony/config": "^6.1",
                 "symfony/console": "^6.1",
                 "symfony/dependency-injection": "^6.1",
@@ -2846,7 +2846,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-10T15:24:53+00:00"
+            "time": "2022-11-22T21:02:59+00:00"
         },
         {
             "name": "symplify/rule-doc-generator-contracts",
