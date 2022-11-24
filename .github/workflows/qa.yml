@@ -11,7 +11,7 @@ jobs:
     call-qa:
         uses: schranz-php-recipes/symfony-recipes-php/.github/workflows/callable-qa.yml@main
         with:
-            contrib: true
+            contrib: false # sylius requires false as aliases only support on false
             find_yaml: -not -wholename 'codeception/codeception/*/tests/*' -not -wholename 'codeception/codeception/*/codeception.yml'
         secrets:
             token: ${{ secrets.BOT_TOKEN }}
