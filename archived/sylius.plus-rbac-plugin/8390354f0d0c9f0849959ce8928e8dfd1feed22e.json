@@ -1,0 +1,50 @@
+{
+    "manifests": {
+        "sylius/plus-rbac-plugin": {
+            "manifest": {
+                "bundles": {
+                    "Sylius\\PlusRbacPlugin\\SyliusPlusRbacPlugin": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/sylius_plus_rbac_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ContainerConfigurator;",
+                        "",
+                        "return static function (ContainerConfigurator $containerConfigurator): void {",
+                        "    $containerConfigurator->import('@SyliusPlusRbacPlugin/config/config.yaml');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/sylius_plus_rbac_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\Routing\\Loader\\Configurator\\RoutingConfigurator;",
+                        "",
+                        "return static function (RoutingConfigurator $routingConfigurator): void {",
+                        "    $routingConfigurator->import('@SyliusPlusRbacPlugin/config/admin_routing.yaml')",
+                        "        ->prefix('/%sylius_admin.path_name%');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "8390354f0d0c9f0849959ce8928e8dfd1feed22e"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "manifests": {
+        "sylius/rfq-plugin": {
+            "manifest": {
+                "bundles": {
+                    "Sylius\\RfqPlugin\\SyliusRfqPlugin": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/sylius_rfq_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ContainerConfigurator;",
+                        "",
+                        "return static function (ContainerConfigurator $containerConfigurator): void {",
+                        "    $containerConfigurator->import('@SyliusRfqPlugin/config/config.yaml');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/sylius_rfq_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\Routing\\Loader\\Configurator\\RoutingConfigurator;",
+                        "",
+                        "return static function (RoutingConfigurator $routingConfigurator): void {",
+                        "    $routingConfigurator->import('@SyliusRfqPlugin/config/routes.yaml');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "51c20e05a055a64714f29b305538d1a9630b0a91"
+        }
+    }
+}

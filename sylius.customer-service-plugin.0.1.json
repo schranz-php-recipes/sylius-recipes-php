@@ -1,9 +1,9 @@
 {
     "manifests": {
-        "sylius/partial-shipment-plugin": {
+        "sylius/customer-service-plugin": {
             "manifest": {
                 "bundles": {
-                    "Sylius\\PartialShipmentPlugin\\SyliusPartialShipmentPlugin": [
+                    "Sylius\\CustomerServicePlugin\\SyliusCustomerServicePlugin": [
                         "all"
                     ]
                 },
@@ -12,7 +12,7 @@
                 }
             },
             "files": {
-                "config/packages/sylius_partial_shipment_plugin.php": {
+                "config/packages/sylius_customer_service_plugin.php": {
                     "contents": [
                         "<?php",
                         "",
@@ -21,13 +21,13 @@
                         "use Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ContainerConfigurator;",
                         "",
                         "return static function (ContainerConfigurator $containerConfigurator): void {",
-                        "    $containerConfigurator->import('@SyliusPartialShipmentPlugin/config/config.yaml');",
+                        "    $containerConfigurator->import('@SyliusCustomerServicePlugin/config/config.yaml');",
                         "};",
                         ""
                     ],
                     "executable": false
                 },
-                "config/routes/sylius_partial_shipment_plugin.php": {
+                "config/routes/sylius_customer_service_plugin.php": {
                     "contents": [
                         "<?php",
                         "",
@@ -36,7 +36,7 @@
                         "use Symfony\\Component\\Routing\\Loader\\Configurator\\RoutingConfigurator;",
                         "",
                         "return static function (RoutingConfigurator $routingConfigurator): void {",
-                        "    $routingConfigurator->import('@SyliusPartialShipmentPlugin/config/routes/admin_routing.yaml')",
+                        "    $routingConfigurator->import('@SyliusCustomerServicePlugin/config/admin_routing.yaml')",
                         "        ->prefix('/%sylius_admin.path_name%');",
                         "};",
                         ""
@@ -44,7 +44,7 @@
                     "executable": false
                 }
             },
-            "ref": "551af129e49a65501c3bbe777917c300825fff5e"
+            "ref": "acd1a4a829e5127d13f45183c6dc71aae62ab632"
         }
     }
 }

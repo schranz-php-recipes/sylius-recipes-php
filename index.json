@@ -1,33 +1,83 @@
 {
     "aliases": {
+        "b2b-kit": "sylius/b2b-kit",
+        "b2b-suite": "sylius/b2b-kit",
+        "b2bkit": "sylius/b2b-kit",
+        "b2bsuite": "sylius/b2b-kit",
+        "customer-service": "sylius/customer-service-plugin",
+        "customerservice": "sylius/customer-service-plugin",
         "loyalty": "sylius/loyalty-plugin",
+        "marketplace": "sylius/plus-marketplace-suite-plugin",
+        "marketplace-plugin": "sylius/plus-marketplace-suite-plugin",
+        "marketplace-suite": "sylius/plus-marketplace-suite-plugin",
+        "marketplace-suite-plugin": "sylius/plus-marketplace-suite-plugin",
+        "marketplaceplugin": "sylius/plus-marketplace-suite-plugin",
+        "marketplacesuite": "sylius/plus-marketplace-suite-plugin",
+        "marketplacesuiteplugin": "sylius/plus-marketplace-suite-plugin",
         "multi-source-inventory": "sylius/multi-source-inventory-plugin",
         "multisourceinventory": "sylius/multi-source-inventory-plugin",
         "multistore": "sylius/multi-store-plugin",
-        "partial-shipment": "sylius/partial-shipment-plugin",
-        "partialshipment": "sylius/partial-shipment-plugin",
+        "one-page-checkout": "sylius/one-page-checkout-plugin",
+        "onepagecheckout": "sylius/one-page-checkout-plugin",
+        "price-history": "sylius/price-history-plugin",
+        "pricehistory": "sylius/price-history-plugin",
         "rbac": "sylius/plus-rbac-plugin",
         "return": "sylius/return-plugin",
-        "returns": "sylius/return-plugin"
+        "returns": "sylius/return-plugin",
+        "rfq": "sylius/rfq-plugin"
     },
     "recipes": {
+        "sylius/b2b-kit": [
+            "0.1",
+            "0.4.1",
+            "2.0",
+            "2.1"
+        ],
+        "sylius/customer-service-plugin": [
+            "0.1",
+            "2.0"
+        ],
         "sylius/loyalty-plugin": [
-            "0.1"
+            "0.1",
+            "2.0"
         ],
         "sylius/multi-source-inventory-plugin": [
-            "0.1"
+            "0.1",
+            "2.0"
         ],
         "sylius/multi-store-plugin": [
-            "0.2"
+            "0.2",
+            "2.0"
         ],
-        "sylius/partial-shipment-plugin": [
+        "sylius/one-page-checkout-plugin": [
             "0.1"
         ],
+        "sylius/plus-marketplace-suite-plugin": [
+            "2.8",
+            "3.0"
+        ],
         "sylius/plus-rbac-plugin": [
+            "0.1",
+            "0.3",
+            "2.0"
+        ],
+        "sylius/price-history-plugin": [
             "0.1"
         ],
         "sylius/return-plugin": [
-            "0.1"
+            "0.1",
+            "0.3",
+            "2.0"
+        ],
+        "sylius/rfq-plugin": [
+            "1.0",
+            "2.0"
+        ],
+        "sylius/state-machine-abstraction": [
+            "1.13"
+        ],
+        "sylius/sylius": [
+            "1.13"
         ]
     },
     "recipe-conflicts": [],

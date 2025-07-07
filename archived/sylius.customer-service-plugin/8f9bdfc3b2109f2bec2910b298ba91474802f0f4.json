@@ -1,0 +1,58 @@
+{
+    "manifests": {
+        "sylius/customer-service-plugin": {
+            "manifest": {
+                "bundles": {
+                    "Sylius\\CustomerServicePlugin\\SyliusCustomerServicePlugin": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                },
+                "add-lines": [
+                    {
+                        "file": "assets/admin/entrypoint.js",
+                        "content": "import '../../vendor/sylius/customer-service-plugin/assets/admin/entrypoint';",
+                        "position": "bottom",
+                        "warn_if_missing": true
+                    }
+                ]
+            },
+            "files": {
+                "config/packages/sylius_customer_service_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ContainerConfigurator;",
+                        "",
+                        "return static function (ContainerConfigurator $containerConfigurator): void {",
+                        "    $containerConfigurator->import('@SyliusCustomerServicePlugin/config/config.yaml');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/sylius_customer_service_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\Routing\\Loader\\Configurator\\RoutingConfigurator;",
+                        "",
+                        "return static function (RoutingConfigurator $routingConfigurator): void {",
+                        "    $routingConfigurator->import('@SyliusCustomerServicePlugin/config/admin_routing.yaml')",
+                        "        ->prefix('/%sylius_admin.path_name%');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "8f9bdfc3b2109f2bec2910b298ba91474802f0f4"
+        }
+    }
+}

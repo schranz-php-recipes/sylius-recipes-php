@@ -1,0 +1,58 @@
+{
+    "manifests": {
+        "sylius/plus-rbac-plugin": {
+            "manifest": {
+                "bundles": {
+                    "Sylius\\PlusRbacPlugin\\SyliusPlusRbacPlugin": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                },
+                "add-lines": [
+                    {
+                        "file": "assets/admin/entrypoint.js",
+                        "content": "import '../../vendor/sylius/plus-rbac-plugin/assets/admin/entrypoint';",
+                        "position": "top",
+                        "warn_if_missing": true
+                    }
+                ]
+            },
+            "files": {
+                "config/packages/sylius_plus_rbac_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ContainerConfigurator;",
+                        "",
+                        "return static function (ContainerConfigurator $containerConfigurator): void {",
+                        "    $containerConfigurator->import('@SyliusPlusRbacPlugin/config/config.yaml');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/sylius_plus_rbac_plugin.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\Routing\\Loader\\Configurator\\RoutingConfigurator;",
+                        "",
+                        "return static function (RoutingConfigurator $routingConfigurator): void {",
+                        "    $routingConfigurator->import('@SyliusPlusRbacPlugin/config/admin_routing.yaml')",
+                        "        ->prefix('/%sylius_admin.path_name%');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "6dd32342fa712fc75f677979f39e4e63a3968c21"
+        }
+    }
+}

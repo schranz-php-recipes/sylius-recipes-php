@@ -1,0 +1,64 @@
+{
+    "manifests": {
+        "sylius/b2b-kit": {
+            "manifest": {
+                "bundles": {
+                    "Sylius\\B2BKit\\SyliusB2BKitPlugin": [
+                        "all"
+                    ],
+                    "OldSound\\RabbitMqBundle\\OldSoundRabbitMqBundle": [
+                        "all"
+                    ],
+                    "BitBag\\SyliusWishlistPlugin\\BitBagSyliusWishlistPlugin": [
+                        "all"
+                    ],
+                    "FOS\\ElasticaBundle\\FOSElasticaBundle": [
+                        "all"
+                    ],
+                    "BitBag\\SyliusElasticsearchPlugin\\BitBagSyliusElasticsearchPlugin": [
+                        "all"
+                    ],
+                    "FOS\\JsRoutingBundle\\FOSJsRoutingBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/_sylius_b2b_suite.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\DependencyInjection\\Loader\\Configurator\\ContainerConfigurator;",
+                        "",
+                        "return static function (ContainerConfigurator $containerConfigurator): void {",
+                        "    $containerConfigurator->import('@SyliusB2BKitPlugin/config/plugins/config.yaml');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "config/routes/sylius_b2b_suite.php": {
+                    "contents": [
+                        "<?php",
+                        "",
+                        "declare(strict_types=1);",
+                        "",
+                        "use Symfony\\Component\\Routing\\Loader\\Configurator\\RoutingConfigurator;",
+                        "",
+                        "return static function (RoutingConfigurator $routingConfigurator): void {",
+                        "    $routingConfigurator->import('@SyliusB2BKitPlugin/config/routes/routes.yaml');",
+                        "};",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "b23c9b119ec8007ef06ea4f75d3c14a1b2d8bb35"
+        }
+    }
+}
