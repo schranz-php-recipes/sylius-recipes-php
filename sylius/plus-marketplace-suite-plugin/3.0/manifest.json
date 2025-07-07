@@ -1,0 +1,56 @@
+{
+    "aliases": [
+        "marketplace",
+        "marketplace-plugin",
+        "marketplace-suite",
+        "marketplace-suite-plugin"
+    ],
+    "bundles": {
+        "Sylius\\MarketplaceSuite\\SyliusMarketplaceSuitePlugin": [
+            "all"
+        ]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/",
+        "src/": "%SRC_DIR%/"
+    },
+    "add-lines": [
+        {
+            "file": "config/packages/security.yaml",
+            "content": "        - { path: \"%sylius.security.shop_regex%/account/vendor/conversations/create\", role: ROLE_USER }\n        - { path: \"%sylius.security.shop_regex%/account/vendor/conversations\", role: ROLE_USER }\n        - { path: \"%sylius.security.shop_regex%/account/vendor/register\", role: ROLE_USER }\n        - { path: \"%sylius.security.shop_regex%/account/vendor\", role: ROLE_VENDOR }\n        - { path: \"%sylius.security.shop_regex%/account\", role: ROLE_USER }\n\n        - { path: \"%sylius.security.api_shop_account_vendor_regex%/register\", role: ROLE_USER }\n        - { path: \"%sylius.security.api_shop_account_vendor_regex%\", role: ROLE_VENDOR }",
+            "position": "after_target",
+            "target": "    access_control:",
+            "warn_if_missing": true
+        },
+        {
+            "file": "assets/admin/entrypoint.js",
+            "content": "import '@vendor/sylius/plus-marketplace-suite-plugin/assets/admin/entrypoint';",
+            "position": "bottom",
+            "warn_if_missing": true
+        },
+        {
+            "file": "assets/shop/entrypoint.js",
+            "content": "import '@vendor/sylius/plus-marketplace-suite-plugin/assets/shop/entrypoint';",
+            "position": "bottom",
+            "warn_if_missing": true
+        },
+        {
+            "file": "config/routes.yaml",
+            "content": "sylius_marketplace_suite:\n    resource: \"@SyliusMarketplaceSuitePlugin/config/routes.yaml\"",
+            "position": "bottom",
+            "warn_if_missing": true
+        }
+    ],
+    "env": {
+        "VENDOR_PRODUCTS_LIMITS": "9,18,27",
+        "DEFAULT_VENDOR_PRODUCTS_LIMIT": "9",
+        "LOGO_DIRECTORY": "media/image/logo/",
+        "ADMIN_ATTACHMENTS_UPLOAD_DIRECTORY": "uploads/attachments",
+        "MESSAGES_FILE_UPLOAD_DIRECTORY": "uploads/message_files",
+        "VENDOR_B2B_REGISTRATION": "0",
+        "DEFAULT_VENDOR_LISTING_AUTO_VERIFY": "0",
+        "VENDOR_PROFILE_AUTO_ACCEPTANCE": "0",
+        "DEFAULT_VENDOR_COMMISSION": "10",
+        "DEFAULT_VENDOR_COMMISSION_TYPE": "gross"
+    }
+}
